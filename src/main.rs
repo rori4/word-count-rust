@@ -10,13 +10,9 @@ fn main() {
     println!("Word count of input: {}", word_count(input));
 }
 
-pub fn word_count(words: String) -> u128 {
-    let mut count: u128 = 0;
-    words
+pub fn word_count(words: String) -> usize {
+    return words
         .split(|c: char| !c.is_ascii_alphanumeric() && c != '\'')
         .filter(|word| !word.trim().is_empty())
-        .for_each(|_word| {
-            count += 1;
-        });
-    return count;
+        .count()
 }
